@@ -1,11 +1,6 @@
 {{#each this}}
-{{!-- webformatURL - ссылка на маленькое изображение для списка карточек
-largeImageURL - ссылка на большое изображение (смотри пункт 'дополнительно')
-likes - количество лайков
-views - количество просмотров
-comments - количество комментариев
-downloads - количество загрузок --}}
-<div class="photo-card">
+
+<li class="photo-card card shadow-sm">
     <img src="{{webformatURL}}" alt="" />
 
     <div class="stats">
@@ -26,5 +21,7 @@ downloads - количество загрузок --}}
             {{downloads}}
         </p>
     </div>
-</div>
+
+
+</li>
 {{/each}}

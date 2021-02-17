@@ -5,27 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Image-finder</title>
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
   </head>
 
   <body>
-    <form class="search-form" id="search-form">
-      <input
-        type="text"
-        name="query"
-        autocomplete="off"
-        placeholder="Search images..."
-      />
-      <button class="search-form__button" type="submit">Search</button>
-      <ul class="gallery">
+    <div class="container">
+      <form class="search-form" id="search-form">
+        <input
+          type="text"
+          name="query"
+          autocomplete="off"
+          placeholder="Search images..."
+        />
+        <button class="btn btn-primary" type="submit">Search</button>
+      </form>
+
+      <ul class="gallery grid">
         <!-- Список <li> с карточками изображений -->
       </ul>
-      <button
-        type="button"
-        class="button button-primary"
-        data-action="load-more"
-      >
+
+      <button type="button" class="btn btn-secondary" data-action="load-more">
         Load more
       </button>
-    </form>
+    </div>
   </body>
 </html>
