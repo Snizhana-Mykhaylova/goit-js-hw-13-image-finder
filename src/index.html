@@ -27,7 +27,19 @@
         <!-- Список <li> с карточками изображений -->
       </ul>
 
-      <button type="button" class="btn btn-secondary" data-action="load-more">
+      <div
+        class="spinner-border text-primary is-hidden"
+        id="spinner"
+        role="status"
+      >
+        <span class="visually-hidden">Loading...</span>
+      </div>
+
+      <button
+        type="button"
+        class="btn btn-secondary is-hidden"
+        data-action="load-more"
+      >
         Load more
       </button>
     </div>

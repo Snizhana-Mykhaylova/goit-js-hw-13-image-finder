@@ -13,20 +13,28 @@ refs.searchForm.addEventListener('submit', event => {
 
   const form = event.currentTarget;
   apiService.query = form.elements.query.value;
+  cleanMarkup();
 
   apiService.resetPage();
-  cleanMarkup();
+  fetchImages();
   form.reset();
-
-  apiService.fetchImages().then(hits => addMarkup(hits));
 });
 
-refs.loadMoreBtn.addEventListener('click', event => {
-  apiService.fetchImages().then(hits => {
-    addMarkup(hits);
-    window.scrollTo({
-      top: document.documentElement.offsetHeight,
-      behavior: 'smooth',
-    });
-  });
-});
+refs.loadMoreBtn.addEventListener('click', fetchImages);
+
+function fetchImages() {
+  refs.loadMoreBtn.classList.add('is-hidden');
+  refs.spinner.classList.remove('is-hidden');
+
+  apiService
+    .fetchImages()
+    .then(hits => {
+      addMarkup(hits);
+      refs.loadMoreBtn.classList.remove('is-hidden');
+      window.scrollTo({
+        top: document.documentElement.offsetHeight,
+        behavior: 'smooth',
+      });
+    })
+    .finally(() => refs.spinner.classList.add('is-hidden'));
+}
