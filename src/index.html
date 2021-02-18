@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Image-finder</title>
+
     <link
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet"
@@ -12,7 +13,7 @@
   </head>
 
   <body>
-    <div class="container">
+    <div class="" id="scroller">
       <form class="search-form" id="search-form">
         <input
           type="text"
@@ -20,7 +21,7 @@
           autocomplete="off"
           placeholder="Search images..."
         />
-        <button class="btn btn-primary" type="submit">Search</button>
+        <button class="btn btn-primary button" type="submit">Search</button>
       </form>
 
       <ul class="gallery grid">
@@ -37,7 +38,7 @@
 
       <button
         type="button"
-        class="btn btn-secondary is-hidden"
+        class="btn btn-secondary button is-hidden"
         data-action="load-more"
       >
         Load more

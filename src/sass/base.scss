@@ -1,5 +1,7 @@
 html {
   box-sizing: border-box;
+  width: 100vw;
+  overflow-x: hidden;
 }
 
 *,
@@ -9,20 +11,11 @@ html {
 }
 body {
   margin: 0;
-  padding: 3em 1em;
-  text-align: center;
-}
-
-ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover; // crop image within its cell
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  background-color: #fff;
+  color: #212121;
+  padding: 20px;
 }
 
 .search-form {
@@ -30,6 +23,10 @@ img {
   justify-content: center;
   padding: 8px;
   margin-bottom: 24px;
+}
+
+button.button {
+  display: block;
 }
 
 .btn-primary {
@@ -59,20 +56,25 @@ button.is-hidden {
 }
 .grid {
   display: grid;
-  grid-auto-flow: column; // display the items in columns only, ie horizontal
-  grid-auto-columns: 90%; // create as many columns as there are items. 90% so we can see next item on the right.
-  grid-gap: 1em;
-  overflow-x: scroll; // scroll only within the grid, not entire page
-  -webkit-overflow-scrolling: touch; // better scrolling on touch
-  padding: 2em 1em;
-  background: white;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-gap: 20px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  max-width: calc(100vw - 80px);
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 30px;
+}
 
-  @media all and (min-width: 600px) {
-    grid-auto-flow: initial; // default: display items in rows and cols
-    grid-template-columns: repeat(
-      auto-fit,
-      minmax(auto, 20em)
-    ); // as many columns with max-width of 20em;
-    justify-content: center; // center the items - this is optional
-  }
+.galley_item {
+  height: 300px;
+  overflow: hidden;
+}
+
+.galley_img {
+  display: block;
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
 }

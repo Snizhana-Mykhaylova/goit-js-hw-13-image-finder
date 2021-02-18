@@ -6,7 +6,13 @@ import 'material-design-icons';
 import apiService from './js/apiService';
 import { addMarkup, cleanMarkup } from './js/markup';
 import refs from './js/refs';
-// import windowScroll from './js/windowScroll';
+import { showOriginalSize, ArrowLeft, ArrowRight } from './js/lightBox';
+
+window.addEventListener('keydown', ArrowLeft);
+
+window.addEventListener('keydown', ArrowRight);
+
+refs.gallery.addEventListener('click', showOriginalSize);
 
 refs.searchForm.addEventListener('submit', event => {
   event.preventDefault();

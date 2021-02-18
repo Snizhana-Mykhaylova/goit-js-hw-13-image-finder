@@ -2,7 +2,8 @@ import imageCardTpl from '../templates/images.hbs';
 import refs from './refs';
 
 function addMarkup(items) {
-  const markup = imageCardTpl(items);
+  let index = 0;
+  const markup = imageCardTpl(items, index);
   refs.gallery.insertAdjacentHTML('beforeend', markup);
 }
 

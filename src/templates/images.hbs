@@ -1,7 +1,6 @@
 {{#each this}}
-
-<li class="photo-card card shadow-sm">
-    <img src="{{webformatURL}}" alt="" />
+<li class="galley_item">
+    <img class="galley_img" src="{{webformatURL}}" alt="" data-source="{{largeImageURL}}" data-idx="${index} += 1" />
 
     <div class="stats">
         <p class="stats-item">
