@@ -1,18 +1,13 @@
 import bootstrap from 'bootstrap';
+import baguetteBox from 'baguettebox.js';
+
+import 'material-design-icons';
 import './styles.scss';
 import './js/apiService';
-import 'material-design-icons';
 
 import apiService from './js/apiService';
 import { addMarkup, cleanMarkup } from './js/markup';
 import refs from './js/refs';
-import { showOriginalSize, ArrowLeft, ArrowRight } from './js/lightBox';
-
-window.addEventListener('keydown', ArrowLeft);
-
-window.addEventListener('keydown', ArrowRight);
-
-refs.gallery.addEventListener('click', showOriginalSize);
 
 refs.searchForm.addEventListener('submit', event => {
   event.preventDefault();
@@ -36,6 +31,7 @@ function fetchImages() {
     .fetchImages()
     .then(hits => {
       addMarkup(hits);
+      baguetteBox.run('.gallery');
       refs.loadMoreBtn.classList.remove('is-hidden');
       window.scrollTo({
         top: document.documentElement.offsetHeight,

@@ -1,7 +1,8 @@
 {{#each this}}
 <li class="galley_item">
-    <img class="galley_img" src="{{webformatURL}}" alt="" data-source="{{largeImageURL}}" data-idx="${index} += 1" />
-
+    <a href="{{largeImageURL}}">
+        <img class="galley_img" src="{{webformatURL}}" alt="image" />
+    </a>
     <div class="stats">
         <p class="stats-item">
             <i class="material-icons">thumb_up</i>
@@ -20,6 +21,5 @@
             {{downloads}}
         </p>
     </div>
-
 </li>
 {{/each}}
