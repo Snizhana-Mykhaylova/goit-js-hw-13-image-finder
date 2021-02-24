@@ -13,7 +13,8 @@
   </head>
 
   <body>
-    <div class="" id="scroller">
+    <div class="" id="data-container">
+      <!-- форма поиска -->
       <form class="search-form" id="search-form">
         <input
           type="text"
@@ -24,10 +25,12 @@
         <button class="btn btn-primary button" type="submit">Search</button>
       </form>
 
+      <!-- сетка галереи -->
       <ul class="gallery grid">
         <!-- Список <li> с карточками изображений -->
       </ul>
 
+      <!-- спинер -->
       <div
         class="spinner-border text-primary is-hidden"
         id="spinner"
@@ -36,13 +39,19 @@
         <span class="visually-hidden">Loading...</span>
       </div>
 
-      <button
+      <!-- кнопка загружаем -->
+      <!-- <button
         type="button"
         class="btn btn-secondary button is-hidden"
         data-action="load-more"
       >
         Load more
-      </button>
+      </button> -->
     </div>
+    <!-- пагинация -->
+    <div id="pagination-container"></div>
   </body>
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+  <!-- <script src="pagination-with-styles.js"></script> -->
 </html>

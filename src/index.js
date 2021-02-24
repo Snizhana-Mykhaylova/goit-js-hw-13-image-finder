@@ -4,10 +4,12 @@ import baguetteBox from 'baguettebox.js';
 import 'material-design-icons';
 import './styles.scss';
 import './js/apiService';
+import 'jquery/dist/jquery.js';
 
 import apiService from './js/apiService';
 import { addMarkup, cleanMarkup } from './js/markup';
 import refs from './js/refs';
+import pagination from './js/pagination';
 
 refs.searchForm.addEventListener('submit', event => {
   event.preventDefault();
@@ -17,26 +19,64 @@ refs.searchForm.addEventListener('submit', event => {
   cleanMarkup();
 
   apiService.resetPage();
-  fetchImages();
+  // fetchImages();
+  pagination.paginationImages();
   form.reset();
 });
 
-refs.loadMoreBtn.addEventListener('click', fetchImages);
+// // Изображение догружаются при клике на кнопку loadMoreBtn
+// // refs.loadMoreBtn.addEventListener('click', fetchImages);
 
-function fetchImages() {
-  refs.loadMoreBtn.classList.add('is-hidden');
-  refs.spinner.classList.remove('is-hidden');
+// // рендериться следующя страница с изображениями
+// refs.nextBtn.addEventListener('click', () => {
+//   cleanMarkup();
+//   fetchImages();
+//   refs.previousBtn.classList.remove('disabled');
+// });
 
-  apiService
-    .fetchImages()
-    .then(hits => {
-      addMarkup(hits);
-      baguetteBox.run('.gallery');
-      refs.loadMoreBtn.classList.remove('is-hidden');
-      window.scrollTo({
-        top: document.documentElement.offsetHeight,
-        behavior: 'smooth',
-      });
-    })
-    .finally(() => refs.spinner.classList.add('is-hidden'));
-}
+// refs.previousBtn.addEventListener('click', fetchPrevImages);
+
+// function fetchImages() {
+//   // refs.loadMoreBtn.classList.add('is-hidden');
+//   refs.paginationNav.classList.add('is-hidden');
+//   refs.spinner.classList.remove('is-hidden');
+
+//   apiService
+//     .fetchImages()
+//     .then(({ hits, total }) => {
+//       addMarkup(hits);
+//       pagination(total);
+//       baguetteBox.run('.gallery');
+
+//       // refs.loadMoreBtn.classList.remove('is-hidden');
+//       refs.paginationNav.classList.remove('is-hidden');
+
+//       window.scrollTo({
+//         top: document.documentElement.offsetHeight,
+//         behavior: 'smooth',
+//       });
+//     })
+//     .finally(() => refs.spinner.classList.add('is-hidden'));
+// }
+
+// function fetchPrevImages() {
+//   // refs.loadMoreBtn.classList.add('is-hidden');
+//   refs.paginationNav.classList.add('is-hidden');
+//   refs.spinner.classList.remove('is-hidden');
+
+//   apiService
+//     .fetchPrevImages()
+//     .then(({ hits, total }) => {
+//       addMarkup(hits);
+//       baguetteBox.run('.gallery');
+
+//       // refs.loadMoreBtn.classList.remove('is-hidden');
+//       refs.paginationNav.classList.remove('is-hidden');
+
+//       window.scrollTo({
+//         top: document.documentElement.offsetHeight,
+//         behavior: 'smooth',
+//       });
+//     })
+//     .finally(() => refs.spinner.classList.add('is-hidden'));
+// }

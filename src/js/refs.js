@@ -5,6 +5,8 @@ const refs = {
   loadMoreBtn: document.querySelector('[data-action="load-more"]'),
   spinner: document.querySelector('#spinner'),
   scroller: document.querySelector('#scroller'),
+  paginationNav: document.querySelector('#pagination-container'),
+  dataContainer: document.querySelector('#dataContainer'),
 };
 
 export default refs;

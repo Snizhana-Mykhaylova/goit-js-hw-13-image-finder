@@ -55,8 +55,10 @@
     "bootstrap": "^5.0.0-beta2",
     "core-js": "^3.6.5",
     "handlebars": "^4.7.6",
+    "jquery": "^3.5.1",
     "lodash.throttle": "^4.1.1",
     "material-design-icons": "^3.0.1",
+    "paginationjs": "^2.1.5",
     "uuidv4": "^6.2.6"
   }
 }

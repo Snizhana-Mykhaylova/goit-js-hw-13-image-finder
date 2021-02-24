@@ -5,19 +5,29 @@ export default {
 
   fetchImages() {
     const url = `https://pixabay.com/api/?image_type=photo&orientation=horizontal&q=${this.searchQuery}&page=${this.page}&per_page=12&key=${key}`;
+
     return fetch(url)
       .then(res => res.json())
-      .then(({ hits }) => {
+      .then(({ hits, total }) => {
+        console.log(total);
         this.incrementPage();
-        return hits;
+        return { hits, total };
       })
       .catch(error => console.log(error));
   },
+
   resetPage() {
     this.page = 1;
   },
   incrementPage() {
     this.page += 1;
+  },
+
+  dencrementPage() {
+    if (this.page <= 1) {
+      return;
+    }
+    this.page -= 1;
   },
 
   get query() {
