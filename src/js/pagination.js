@@ -1,28 +1,33 @@
 import refs from './refs';
-import 'jquery/dist/jquery.js';
 
 import pagination from 'paginationjs/dist/pagination.js';
 import { addMarkup, cleanMarkup } from './markup';
 const key = '20294506-248ba45cdd61456c7439febce';
 
 export default {
-  searchQuery: '',
-  page: 1,
+  paginationImages(searchQuery) {
+    $('#pagination-container').pagination({
+      dataSource: `https://pixabay.com/api/?image_type=photo&orientation=horizontal&q=${searchQuery}&key=${key}`,
+      locator: 'hits',
+      pageSize: 12,
+      alias: {
+        pageNumber: 'page',
+      },
 
-  paginationImages() {
-    refs.paginationNav.pagination({
-      dataSource: `https://pixabay.com/api/?image_type=photo&orientation=horizontal&q=${this.searchQuery}&page=${this.page}&per_page=12&key=${key}`,
+      totalNumberLocator: function (response) {
+        // you can return totalNumber by analyzing response content
+        return Math.floor(Math.random() * (1000 - 100)) + 100;
+      },
+
+      ajax: {
+        beforeSend: function () {
+          cleanMarkup();
+        },
+      },
 
       callback: function (data, pagination) {
         addMarkup(data);
       },
     });
-  },
-
-  get query() {
-    return this.searchQuery;
-  },
-  set query(newQuery) {
-    this.searchQuery = newQuery;
   },
 };

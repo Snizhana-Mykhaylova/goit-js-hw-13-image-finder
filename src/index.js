@@ -4,7 +4,6 @@ import baguetteBox from 'baguettebox.js';
 import 'material-design-icons';
 import './styles.scss';
 import './js/apiService';
-import 'jquery/dist/jquery.js';
 
 import apiService from './js/apiService';
 import { addMarkup, cleanMarkup } from './js/markup';
@@ -15,12 +14,15 @@ refs.searchForm.addEventListener('submit', event => {
   event.preventDefault();
 
   const form = event.currentTarget;
-  apiService.query = form.elements.query.value;
-  cleanMarkup();
+  // apiService.query = form.elements.query.value;
+  // cleanMarkup();
 
-  apiService.resetPage();
+  // apiService.resetPage();
   // fetchImages();
-  pagination.paginationImages();
+
+  const searchQuery = form.elements.query.value;
+
+  pagination.paginationImages(searchQuery);
   form.reset();
 });
 
