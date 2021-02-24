@@ -21,7 +21,9 @@ refs.searchForm.addEventListener('submit', event => {
   // fetchImages();
 
   const searchQuery = form.elements.query.value;
-
+  if (!trim.searchQuery) {
+    return;
+  }
   pagination.paginationImages(searchQuery);
   form.reset();
 });
